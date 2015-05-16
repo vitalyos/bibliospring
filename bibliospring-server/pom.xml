@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>edu.bbu.bibliospring</groupId>
+        <artifactId>bibliospring-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../bibliospring-parent</relativePath>
+    </parent>
+    <artifactId>bibliospring-server</artifactId>
+    <packaging>ear</packaging>
+    
+    <dependencies>
+        <dependency>
+            <groupId>edu.bbu.bibliospring</groupId>
+            <artifactId>bibliospring-backend</artifactId>
+            <version>${project.version}</version>
+            <type>ejb</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>edu.bbu.bibliospring</groupId>
+            <artifactId>bibliospring-web</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.8</version>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <ejbModule>
+                            <groupId>edu.bbu.bibliospring</groupId>
+                            <artifactId>bibliospring-backend</artifactId>
+                            <bundleFileName>bibliospring-backend-${project.version}.jar</bundleFileName>
+                        </ejbModule>
+                        
+<!--                        <webModule>
+                            <groupId>edu.bbu.bibliospring</groupId>
+                            <artifactId>bibliospring-api</artifactId>
+                            
+                        </webModule>
+                        -->
+                        
+                        <webModule>
+                            <groupId>edu.bbu.bibliospring</groupId>
+                            <artifactId>bibliospring-web</artifactId>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.glassfish.maven.plugin</groupId>
+                <artifactId>maven-glassfish-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <user>anonymous</user>
+                    <adminPassword>viti</adminPassword>
+                    <glassfishDirectory>/opt/glassfish-4</glassfishDirectory>
+                    <components>
+                        <component>
+                            <name>${project.artifactId}</name>
+                            <artifact>${project.build.directory}/${project.build.finalName}.ear</artifact>
+                        </component>
+                    </components>
+                    <domain>
+                        <name>${project.artifactId}</name>
+                        <adminPort>4848</adminPort>
+                        <httpPort>8080</httpPort>
+                        <httpsPort>8443</httpsPort>
+                    </domain>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
