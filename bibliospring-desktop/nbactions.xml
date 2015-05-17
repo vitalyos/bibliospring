@@ -7,4 +7,11 @@
                 <goal>exec:java</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-fut (HU)</actionName>
+            <displayName>fut (HU)</displayName>
+            <goals>
+                <goal>exec:java</goal>
+            </goals>
+        </action>
     </actions>
