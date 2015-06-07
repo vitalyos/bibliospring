@@ -14,20 +14,18 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class BaseRepositoryBean<T,I> implements BaseRepository<AbstractModel, I>{
-    @PersistenceContext
+    @PersistenceContext(unitName = "bsUnit")
+    
     private EntityManager entitiManager;
-    private Class entityClass;
+    private final Class entityClass;
 
-    public BaseRepositoryBean() {
-    }
-
-    public BaseRepositoryBean(Class entityClass) {
+    public BaseRepositoryBean(final Class entityClass) {
         this.entityClass = entityClass;
     }
     
     
     public Collection<AbstractModel> getAllElements() {
-        return null;
+        
     }
 
     public AbstractModel getById(I id) {
