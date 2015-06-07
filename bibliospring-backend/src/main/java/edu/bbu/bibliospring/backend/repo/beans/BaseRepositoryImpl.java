@@ -18,16 +18,16 @@ import javax.persistence.criteria.Root;
  * @author zsvitalyos
  */
 @Stateless
-public abstract class BaseRepositoryBean<T extends AbstractModel, I> implements BaseRepository<T, I> {
+public abstract class BaseRepositoryImpl<T extends AbstractModel, I> implements BaseRepository<T, I> {
 
     @PersistenceContext(unitName = "bsUnit")
     private EntityManager entityManager;
     private Class<T> entityClass;
 
-    public BaseRepositoryBean() {
+    public BaseRepositoryImpl() {
     }
 
-    public BaseRepositoryBean(final Class entityClass) {
+    public BaseRepositoryImpl(final Class entityClass) {
         this.entityClass = entityClass;
     }
 
