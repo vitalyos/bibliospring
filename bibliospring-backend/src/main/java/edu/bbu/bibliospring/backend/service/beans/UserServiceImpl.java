@@ -26,16 +26,16 @@ public class UserServiceImpl implements UserService {
         try {
             return userRepository.getAllElements();
         } catch (final RepositoryException rex) {
-            throw new ServiceException("Error: ()", rex);
+            throw new ServiceException("Error: getAllUsers()", rex);
         }
     }
     
     @Override
     public User getUserById(Long id) throws ServiceException {
         try {
-            userRepository.getById(id);
+            return userRepository.getById(id);
         } catch (final RepositoryException rex) {
-            throw new ServiceException("Error: ()", rex);
+            throw new ServiceException("Error: getUserById()", rex);
         }
         
     }
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
         try {
             userRepository.insert(user);
         } catch (final RepositoryException rex) {
-            throw new ServiceException("Error: ()", rex);
+            throw new ServiceException("Error: insertUser()", rex);
         }
     }
     
@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
         try {
             userRepository.update(user);
         } catch (final RepositoryException rex) {
-            throw new ServiceException("Error: ()", rex);
+            throw new ServiceException("Error: updateUser()", rex);
         }
     }
     
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
         try {
             userRepository.delete(user);
         } catch (final RepositoryException rex) {
-            throw new ServiceException("Error: ()", rex);
+            throw new ServiceException("Error: deleteUser()", rex);
         }
     }
     
