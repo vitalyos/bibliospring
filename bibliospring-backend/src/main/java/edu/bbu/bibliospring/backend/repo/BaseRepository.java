@@ -7,6 +7,6 @@ import javax.ejb.Local;
  * @author zsvitalyos
  */
 @Local
-public interface FakeRepoInterface {
-    void doSomething ();
+public interface BaseRepository<T> {
+    
 }
