@@ -8,7 +8,7 @@
         <relativePath>../bibliospring-parent</relativePath>
     </parent>
     <artifactId>bibliospring-backend</artifactId>
-    <packaging>jar</packaging>
+    <packaging>ejb</packaging>
     
     <dependencies>
         <dependency>

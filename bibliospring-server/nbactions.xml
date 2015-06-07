@@ -14,4 +14,11 @@
                 <goal>glassfish:redeploy</goal>
             </goals>
         </action>
+        <action>
+            <actionName>CUSTOM-debugredeploy</actionName>
+            <displayName>debugredeploy</displayName>
+            <goals>
+                <goal>glassfish:redeploy</goal>
+            </goals>
+        </action>
     </actions>
