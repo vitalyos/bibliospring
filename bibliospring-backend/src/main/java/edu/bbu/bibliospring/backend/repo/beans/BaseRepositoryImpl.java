@@ -76,7 +76,8 @@ public class BaseRepositoryImpl<T extends AbstractModel, I> implements BaseRepos
     @Override
     public void delete(T element) throws RepositoryException {
         try {
-            entityManager.remove(element);
+            T e = entityManager.merge(element);
+            entityManager.remove(e);
         } catch (PersistenceException pex) {
             throw new RepositoryException(pex, "Error in delete()");
         }

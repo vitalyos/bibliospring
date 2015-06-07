@@ -5,8 +5,13 @@
  */
 package edu.bbu.bibliospring.web.servlet;
 
+import edu.bbu.bibliospring.backend.model.User;
+import edu.bbu.bibliospring.backend.service.UserService;
+import edu.bbu.bibliospring.backend.service.exception.ServiceException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author zsvitalyos
  */
 public class ExampleServlet extends HttpServlet {
+    
+    @EJB
+    UserService uservice;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,11 +38,30 @@ public class ExampleServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
         try {
-            out.println("Hello World! :D");
-        } finally {
-            out.close();
+            final String command = request.getParameter("action");
+            if ("insert".equals(command)) {
+                User u = new User();
+                u.setUserName(request.getParameter("userName"));
+                u.setFirstName(request.getParameter("firstName"));
+                u.setLastName(request.getParameter("lastName"));
+                u.setPassword(request.getParameter("password"));
+                uservice.insertUser(u);
+            } else if ("delete".equals(command)){
+                User u = new User();
+                u.setId(Long.parseLong(request.getParameter("id")));
+                u.setFirstName("");
+                u.setLastName("");
+                u.setUserName("");
+                u.setPassword("");
+                u.getUuid();
+                uservice.deleteUser(u);
+            }
+            Collection<User> users = uservice.getAllUsers();
+            request.setAttribute("users", users);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+        } catch (ServiceException serviceException) {
+            System.out.println(serviceException.getMessage());
         }
     }
 
