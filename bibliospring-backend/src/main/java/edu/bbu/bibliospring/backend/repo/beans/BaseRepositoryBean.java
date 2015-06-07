@@ -18,10 +18,9 @@ import javax.persistence.criteria.Root;
  * @author zsvitalyos
  */
 @Stateless
-public class BaseRepositoryBean<T, I> implements BaseRepository<AbstractModel, I> {
+public abstract class BaseRepositoryBean<T extends AbstractModel, I> implements BaseRepository<T, I> {
 
     @PersistenceContext(unitName = "bsUnit")
-
     private EntityManager entityManager;
     private Class<T> entityClass;
 
@@ -33,30 +32,30 @@ public class BaseRepositoryBean<T, I> implements BaseRepository<AbstractModel, I
     }
 
     @Override
-    public Collection<AbstractModel> getAllElements() throws RepositoryException {
+    public Collection<T> getAllElements() throws RepositoryException {
         try {
             final CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
             final CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(entityClass);
             final Root<T> rootEntity = criteriaQuery.from(entityClass);
             final CriteriaQuery<T> all = criteriaQuery.select(rootEntity);
             final TypedQuery<T> allQuery = entityManager.createQuery(all);
-            return (Collection<AbstractModel>) allQuery.getResultList();
+            return (Collection<T>) allQuery.getResultList();
         } catch (PersistenceException pex) {
             throw new RepositoryException(pex, "Error in getAllElements()");
         }
     }
 
     @Override
-    public AbstractModel getById(I id) throws RepositoryException {
+    public T getById(I id) throws RepositoryException {
         try {
-            return (AbstractModel) entityManager.find(entityClass, id);
+            return (T) entityManager.find(entityClass, id);
         } catch (PersistenceException pex) {
             throw new RepositoryException(pex, "Error in getById()");
         }
     }
 
     @Override
-    public void insert(AbstractModel element) throws RepositoryException {
+    public void insert(T element) throws RepositoryException {
         try {
             entityManager.persist(element);
             entityManager.flush();
@@ -66,7 +65,7 @@ public class BaseRepositoryBean<T, I> implements BaseRepository<AbstractModel, I
     }
 
     @Override
-    public void update(AbstractModel element) throws RepositoryException {
+    public void update(T element) throws RepositoryException {
         try {
             entityManager.merge(element);
         } catch (PersistenceException pex) {
@@ -75,7 +74,7 @@ public class BaseRepositoryBean<T, I> implements BaseRepository<AbstractModel, I
     }
 
     @Override
-    public void delete(AbstractModel element) throws RepositoryException {
+    public void delete(T element) throws RepositoryException {
         try {
             entityManager.remove(element);
         } catch (PersistenceException pex) {
