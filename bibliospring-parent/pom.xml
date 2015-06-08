@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <modules>
         <module>../bibliospring-backend</module>
-        <module>../bibliospring-server</module>
         <module>../bibliospring-web</module>
         <module>../bibliospring-desktop</module>
         <module>../bibliospring-common</module>
         <module>../bibliospring-api</module>
+        <module>../bibliospring-server</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

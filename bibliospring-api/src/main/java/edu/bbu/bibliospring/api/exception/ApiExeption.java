@@ -1,4 +1,4 @@
-package edu.bbu.bibiospring.api.exception;
+package edu.bbu.bibliospring.api.exception;
 
 /**
  *

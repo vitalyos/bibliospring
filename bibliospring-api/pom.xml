@@ -7,7 +7,7 @@
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../bibliospring-parent</relativePath>
     </parent>
-    <groupId>edu.bbu.bibiospring</groupId>
+    <groupId>edu.bbu.bibliospring</groupId>
     <artifactId>bibliospring-api</artifactId>
     <packaging>war</packaging>
     
@@ -16,6 +16,7 @@
             <groupId>edu.bbu.bibliospring</groupId>
             <artifactId>bibliospring-backend</artifactId>
             <version>${project.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>edu.bbu.bibliospring</groupId>
@@ -31,13 +32,11 @@
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-jackson</artifactId>
             <version>2.17</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
-            <version>2.17</version>
-            <scope>provided</scope>
+            <version>2.17</version> 
         </dependency>
     </dependencies>
 </project>

@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
  *
  * @author zsvitalyos
  */
-@Stateless (name = "UserRepository", mappedName = "ejb/UserReository")
+@Stateless (name = "UserRepository", mappedName = "ejb/UserRepository")
 public class UserRepositoryImpl extends BaseRepositoryImpl<User, Long > implements UserRepository {
     public UserRepositoryImpl () {
         super(User.class);

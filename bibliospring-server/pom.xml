@@ -11,11 +11,12 @@
     <packaging>ear</packaging>
     
     <dependencies>
-        <dependency>
+      <dependency>
             <groupId>edu.bbu.bibliospring</groupId>
             <artifactId>bibliospring-backend</artifactId>
-            <version>${project.version}</version>
             <type>ejb</type>
+            <scope>provided</scope>
+            <version>${project.version}</version>
         </dependency>
         
         <dependency>
@@ -51,11 +52,13 @@
                         <webModule>
                             <groupId>edu.bbu.bibliospring</groupId>
                             <artifactId>bibliospring-web</artifactId>
+                            <bundleFileName>bibliospring-web-${project.version}.war</bundleFileName>
                         </webModule>
                         
                         <webModule>
                             <groupId>edu.bbu.bibliospring</groupId>
                             <artifactId>bibliospring-api</artifactId>    
+                            <bundleFileName>bibliospring-api-${project.version}.war</bundleFileName>
                         </webModule>
                     </modules>
                 </configuration>

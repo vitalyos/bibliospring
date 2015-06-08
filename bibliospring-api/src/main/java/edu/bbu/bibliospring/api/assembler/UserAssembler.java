@@ -1,4 +1,4 @@
-package edu.bbu.bibiospring.api.assembler;
+package edu.bbu.bibliospring.api.assembler;
 
 import edu.bbu.bibliospring.backend.model.User;
 import edu.bbu.bibliospring.common.dto.UserDto;

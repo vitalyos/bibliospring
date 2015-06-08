@@ -9,5 +9,5 @@
     </parent>
     <groupId>edu.bbu.bibliospring</groupId>
     <artifactId>bibliospring-common</artifactId>
-    <packaging>jar</packaging>
+    <!--<packaging>jar</packaging>-->
 </project>

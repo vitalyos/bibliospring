@@ -9,7 +9,6 @@ import edu.bbu.bibliospring.backend.model.User;
 import edu.bbu.bibliospring.backend.service.UserService;
 import edu.bbu.bibliospring.backend.service.exception.ServiceException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Collection;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -24,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ExampleServlet extends HttpServlet {
     
     @EJB
-    UserService uservice;
+    private UserService uservice;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
