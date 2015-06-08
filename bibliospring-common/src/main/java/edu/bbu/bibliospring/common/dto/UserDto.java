@@ -1,4 +1,4 @@
-package edu.bbu.bibiospring.common.dto;
+package edu.bbu.bibliospring.common.dto;
 
 /**
  *

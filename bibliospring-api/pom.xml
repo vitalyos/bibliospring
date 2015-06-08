@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
+     <parent>
         <groupId>edu.bbu.bibliospring</groupId>
         <artifactId>bibliospring-parent</artifactId>
-        <version>${project.version}</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../bibliospring-parent</relativePath>
     </parent>
     <groupId>edu.bbu.bibiospring</groupId>
@@ -14,12 +14,12 @@
     <dependencies>
         <dependency>
             <groupId>edu.bbu.bibliospring</groupId>
-            <artifactId>bibliospring-common</artifactId>
+            <artifactId>bibliospring-backend</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>edu.bbu.bibliospring</groupId>
-            <artifactId>bibliospring-backend</artifactId>
+            <artifactId>bibliospring-common</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

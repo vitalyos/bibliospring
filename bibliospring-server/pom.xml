@@ -50,12 +50,12 @@
                         
                         <webModule>
                             <groupId>edu.bbu.bibliospring</groupId>
-                            <artifactId>bibliospring-api</artifactId>    
+                            <artifactId>bibliospring-web</artifactId>
                         </webModule>
                         
                         <webModule>
                             <groupId>edu.bbu.bibliospring</groupId>
-                            <artifactId>bibliospring-web</artifactId>
+                            <artifactId>bibliospring-api</artifactId>    
                         </webModule>
                     </modules>
                 </configuration>
