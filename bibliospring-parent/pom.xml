@@ -12,6 +12,8 @@
         <module>../bibliospring-server</module>
         <module>../bibliospring-web</module>
         <module>../bibliospring-desktop</module>
+        <module>../bibliospring-common</module>
+        <module>../bibliospring-api</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

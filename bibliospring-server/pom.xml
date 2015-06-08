@@ -24,6 +24,13 @@
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
+        
+        <dependency>
+            <groupId>edu.bbu.bibliospring</groupId>
+            <artifactId>bibliospring-api</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -41,12 +48,10 @@
                             <bundleFileName>bibliospring-backend-${project.version}.jar</bundleFileName>
                         </ejbModule>
                         
-<!--                        <webModule>
+                        <webModule>
                             <groupId>edu.bbu.bibliospring</groupId>
-                            <artifactId>bibliospring-api</artifactId>
-                            
+                            <artifactId>bibliospring-api</artifactId>    
                         </webModule>
-                        -->
                         
                         <webModule>
                             <groupId>edu.bbu.bibliospring</groupId>

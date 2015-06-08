@@ -14,5 +14,7 @@
 <!--        <module>bibliospring-desktop</module>
         <module>bibliospring-server</module>
         <module>bibliospring-web</module>-->
+        <module>bibliospring-api</module>
+        <module>bibliospring-common</module>
     </modules>
 </project>
